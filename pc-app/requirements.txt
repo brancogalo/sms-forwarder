@@ -1,0 +1,5 @@
+python-socketio==5.9.0
+python-engineio==4.7.1
+colorama==0.4.6
+requests==2.31.0
+pyinstaller==6.1.0
