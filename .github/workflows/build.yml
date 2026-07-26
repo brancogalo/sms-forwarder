@@ -49,13 +49,14 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
     
-    - name: Make gradlew executable
-      run: chmod +x android-app/gradlew
-    
-    - name: Build APK
+    - name: Download Android SDK
       run: |
         cd android-app
-        ./gradlew assembleDebug
+        wget https://gradle.org/releases/gradle-8.5-bin.zip -O gradle.zip
+        unzip -q gradle.zip
+        export PATH=$PWD/gradle-8.5/bin:$PATH
+        gradle --version
+        gradle assembleDebug
       continue-on-error: true
     
     - name: Upload APK
